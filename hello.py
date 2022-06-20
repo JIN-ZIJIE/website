@@ -10,30 +10,30 @@ app = Flask(__name__)
 #ef hello_world():
 #   return "<h1>Hello, World!</h1>"
 
-def hello_world():
-    first_name = 'john'
-    stuff = "this is bold text"
+def index():
 
-    favourite_pizza = ['pep', 'cheese', 'mush', 41]
-    return render_template('index.html',
-                           first_name=first_name, stuff=stuff,
-                           favourite_pizza=favourite_pizza)
+    return render_template('index.html')
 
 
-# localhost:5000/user/Jin
-@app.route('/user/<name>')
+# localhost:5000/question
+@app.route('/question')
 
-def user(name):
-    return render_template('user.html', user_name=name)
+def question():
+    return render_template('question.html')
+
+# localhost:5000/about
+@app.route('/about')
+
+def about():
+    return render_template('about.html')
 
 # create custom error
-
 # invalid url
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'),404
 
-# internaol server error
+# internal server error
 @app.errorhandler(500)
 def page_not_found(e):
     return render_template('500.html'),500
