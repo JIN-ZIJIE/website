@@ -1,18 +1,16 @@
 from flask import Flask, render_template
+from flask_sqlalchemy import SQLAlchemy
 
 
 # Create a Flask Instance
 app = Flask(__name__)
 
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:123456@localhost/问题'
+
 # Create a route decorator
 @app.route("/")
-
-#ef hello_world():
-#   return "<h1>Hello, World!</h1>"
-
 def index():
     return render_template('index.html')
-
 
 # localhost:5000/question
 @app.route('/question')
@@ -25,6 +23,11 @@ def question():
 
 def about():
     return render_template('about.html')
+
+# localhost:5000/database
+@app.route('/data')
+def data():
+    return render_template('data.html')
 
 # create custom error
 # invalid url
