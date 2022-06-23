@@ -5,6 +5,7 @@ import yaml
 # Create a Flask Instance
 app = Flask(__name__)
 
+
 db = yaml.load(open('db.yaml'))
 app.config['MYSQL_HOST'] = db['mysql_host']
 app.config['MYSQL_USER'] = db['mysql_user']
@@ -12,6 +13,8 @@ app.config['MYSQL_PASSWORD'] = db['mysql_password']
 app.config['MYSQL_DB'] =db['mysql_db']
 
 mysql = MySQL(app)
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:******@localhost/问题'
+
 
 # Create a route decorator
 @app.route("/", methods=['GET', 'POST'])
