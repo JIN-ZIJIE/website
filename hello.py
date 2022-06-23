@@ -1,15 +1,29 @@
-from flask import Flask, render_template
-from flask_sqlalchemy import SQLAlchemy
-
+from flask import Flask, render_template,request
+from flask_mysqldb import MySQL
+import yaml
 
 # Create a Flask Instance
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:123456@localhost/问题'
+db = yaml.load(open('db.yaml'))
+app.config['MYSQL_HOST'] = db['mysql_host']
+app.config['MYSQL_USER'] = db['mysql_user']
+app.config['MYSQL_PASSWORD'] = db['mysql_password']
+app.config['MYSQL_DB'] =db['mysql_db']
+
+mysql = MySQL(app)
 
 # Create a route decorator
-@app.route("/")
+@app.route("/", methods=['GET', 'POST'])
 def index():
+    if request.method == 'POST':
+        questiondb = request.form
+        question = questiondb['question']
+        sur = mysql.connection.cursor()
+        cur.execute('INSERT INTO urser(问题) VALUES(%s)',(问题))
+        mysql.connection.commit()
+        cur.close()
+        return '200'
     return render_template('index.html')
 
 # localhost:5000/question
