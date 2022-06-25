@@ -1,32 +1,23 @@
+from typing import Any
 from flask import Flask, render_template,request
 from flask_mysqldb import MySQL
-import yaml
+
 
 # Create a Flask Instance
 app = Flask(__name__)
 
-
-db = yaml.load(open('db.yaml'))
-app.config['MYSQL_HOST'] = db['mysql_host']
-app.config['MYSQL_USER'] = db['mysql_user']
-app.config['MYSQL_PASSWORD'] = db['mysql_password']
-app.config['MYSQL_DB'] =db['mysql_db']
+# config db
+app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_USER'] = 'root'
+app.config['MYSQL_PASSWORD'] = '123456'
+app.config['MYSQL_DB'] = '问题'
 
 mysql = MySQL(app)
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:******@localhost/问题'
 
-
 # Create a route decorator
-@app.route("/", methods=['GET', 'POST'])
+@app.route("/")
 def index():
-    if request.method == 'POST':
-        questiondb = request.form
-        question = questiondb['question']
-        sur = mysql.connection.cursor()
-        cur.execute('INSERT INTO urser(问题) VALUES(%s)',(问题))
-        mysql.connection.commit()
-        cur.close()
-        return '200'
     return render_template('index.html')
 
 # localhost:5000/question
@@ -42,9 +33,18 @@ def about():
     return render_template('about.html')
 
 # localhost:5000/database
-@app.route('/data')
+@app.route('/datapwd123456', methods=['GET', 'POST'])
 def data():
-    return render_template('data.html')
+    # if request.method == 'POST':
+        # qna = request.form
+        # question = qna['question']
+        # answer = qna['answer']
+        # cur = mysql.connection.cursor()
+        # cur.execute('INSERT INTO qna(question, answer) VALUES(%s, %s)',(question, answer))
+        # mysql.connection.commit()
+        # cur.close()
+        # return 'Success'
+    return render_template('betterdata.html')
 
 # create custom error
 # invalid url

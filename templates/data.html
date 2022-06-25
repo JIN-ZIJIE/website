@@ -1,5 +1,15 @@
-<form method="POST" action="">
-  问题输入 <input type="text" name="question" />
-  <br>
-  <input type="submit">
-</form>
+{%extends 'base.html'%}
+
+{%block content%}
+
+  <form method="POST" action="">
+    qn <input type="text" name="question" />
+    <br>
+    <br>
+    ans <input type="text" name="answer" />
+    <br>
+    <br>
+    <input type="submit">
+  </form>
+
+  {%endblock%}
