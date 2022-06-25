@@ -46,6 +46,12 @@ def data():
         # return 'Success'
     return render_template('betterdata.html')
 
+# localhost:5000/thanks
+@app.route('/credits')
+
+def about():
+    return render_template('thanks.html')
+
 # create custom error
 # invalid url
 @app.errorhandler(404)
