@@ -49,7 +49,7 @@ def data():
 # localhost:5000/thanks
 @app.route('/credits')
 
-def about():
+def credits():
     return render_template('thanks.html')
 
 # create custom error
