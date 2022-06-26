@@ -9,7 +9,7 @@ app = Flask(__name__)
 # config db
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = '******'
+app.config['MYSQL_PASSWORD'] = '123456'
 app.config['MYSQL_DB'] = '问题'
 
 mysql = MySQL(app)
@@ -52,22 +52,81 @@ def index():
 
 # localhost:5000/question
 @app.route('/question')
-
 def question():
-    # QNA = random.randint(0, 9)
-    # return questions[QNA]
-    # return answers[QNA]
-    return render_template('qn.html')
+    QNA = random.randint(1, 34)
+    if QNA == 1:
+        return render_template('qn1.html')
+    if QNA == 2:
+        return render_template('qn2.html')
+    if QNA == 3:
+        return render_template('qn3.html')
+    if QNA == 4:
+        return render_template('qn4.html')
+    if QNA == 5:
+        return render_template('qn5.html')
+    if QNA == 6:
+        return render_template('qn6.html')
+    if QNA == 7:
+        return render_template('qn7.html')
+    if QNA == 8:
+        return render_template('qn8.html')
+    if QNA == 9:
+        return render_template('qn9.html')
+    if QNA == 10:
+        return render_template('qn10.html')
+    if QNA == 11:
+        return render_template('qn11.html')
+    if QNA == 12:
+        return render_template('qn12.html')
+    if QNA == 13:
+        return render_template('qn13.html')
+    if QNA == 14:
+        return render_template('qn14.html')
+    if QNA == 15:
+        return render_template('qn15.html')
+    if QNA == 16:
+        return render_template('qn16.html')
+    if QNA == 17:
+        return render_template('qn17.html')
+    if QNA == 18:
+        return render_template('qn18.html')
+    if QNA == 19:
+        return render_template('qn19.html')
+    if QNA == 20:
+        return render_template('qn20.html')
+    if QNA == 21:
+        return render_template('qn21.html')
+    if QNA == 22:
+        return render_template('qn22.html')
+    if QNA == 23:
+        return render_template('qn23.html')
+    if QNA == 24:
+        return render_template('qn24.html')
+    if QNA == 25:
+        return render_template('qn25.html')
+    if QNA == 26:
+        return render_template('qn26.html')
+    if QNA == 27:
+        return render_template('qn27.html')
+    if QNA == 28:
+        return render_template('qn28.html')
+    if QNA == 29:
+        return render_template('qn29.html')
+    if QNA == 30:
+        return render_template('qn30.html')
+    if QNA == 31:
+        return render_template('qn31.html')
+    if QNA == 32:
+        return render_template('qn32.html')
+    if QNA == 33:
+        return render_template('qn33.html')
+    if QNA == 34:
+        return render_template('qn34.html')
 
 # localhost:5000/about
 @app.route('/about')
-
 def about():
     return render_template('about.html')
-
-@app.route('/500')
-def fiveoo():
-    return render_template('500.html')
 
 # localhost:5000/database
 @app.route('/datapwd123456', methods=['GET', 'POST'])
@@ -85,7 +144,6 @@ def data():
 
 # localhost:5000/thanks
 @app.route('/credits')
-
 def credits():
     return render_template('thanks.html')
 
