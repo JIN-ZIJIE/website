@@ -1,6 +1,6 @@
-from typing import Any
-from flask import Flask, render_template,request
+from flask import Flask, render_template, request
 from flask_mysqldb import MySQL
+import random
 
 
 # Create a Flask Instance
@@ -15,6 +15,36 @@ app.config['MYSQL_DB'] = '问题'
 mysql = MySQL(app)
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:******@localhost/问题'
 
+# questions come here in a list
+questions = ['汉朝时有一猛将，人称飞将，他是谁？',
+            '刘邦的两个著名的文官是谁？',
+            '黄巾起义是那几个人开始的？',
+            '袁绍的三个儿子叫啥？',
+            '庞统的字是啥？',
+            '明太祖是谁？',
+            '包青天真正的名字叫啥？',
+            '隋文帝是谁？',
+            '乾隆皇帝的名字是啥？',
+            '中国最后一个皇帝是谁？']
+
+# answers come here in a list
+answers = ['飞将军李广',
+            '萧何、张良',
+            '张角、张宝、张梁',
+            '袁谭、袁熙、袁尚',
+            '士元',
+            '朱元璋',
+            '包拯',
+            '杨坚',
+            '爱新觉罗 • 弘历',
+            '爱新觉罗 • 博仪',]
+
+# the question number and answer corresponds
+# the index of the entity in the list is represented
+# in a variable and is generated with the random module
+
+# questionprinted = 
+
 # Create a route decorator
 @app.route("/")
 def index():
@@ -24,13 +54,20 @@ def index():
 @app.route('/question')
 
 def question():
-    return render_template('question.html')
+    # QNA = random.randint(0, 9)
+    # return questions[QNA]
+    # return answers[QNA]
+    return render_template('qn.html')
 
 # localhost:5000/about
 @app.route('/about')
 
 def about():
     return render_template('about.html')
+
+@app.route('/500')
+def fiveoo():
+    return render_template('500.html')
 
 # localhost:5000/database
 @app.route('/datapwd123456', methods=['GET', 'POST'])
