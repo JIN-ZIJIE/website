@@ -43,8 +43,6 @@ mysql = MySQL(app)
 # the index of the entity in the list is represented
 # in a variable and is generated with the random module
 
-# questionprinted = 
-
 # Create a route decorator
 @app.route("/")
 def index():
@@ -129,7 +127,7 @@ def about():
     return render_template('about.html')
 
 # localhost:5000/database
-@app.route('/datapwd123456', methods=['GET', 'POST'])
+@app.route('/datapwd123456')#, methods=['GET', 'POST']
 def data():
     # if request.method == 'POST':
         # qna = request.form
@@ -157,5 +155,3 @@ def page_not_found(e):
 @app.errorhandler(500)
 def page_not_found(e):
     return render_template('500.html'),500
-
-
