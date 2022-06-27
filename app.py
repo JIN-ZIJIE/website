@@ -139,6 +139,8 @@ def data():
         # return 'Success'
     return render_template('betterdata.html')
 
+# @app.route('/qn')
+
 # localhost:5000/thanks
 @app.route('/credits')
 def credits():
