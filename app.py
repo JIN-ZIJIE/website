@@ -1,4 +1,5 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
+from flask_mysqldb import MySQL
 import random
 
 
@@ -42,6 +43,8 @@ mysql = MySQL(app)
 # the index of the entity in the list is represented
 # in a variable and is generated with the random module
 
+# questionprinted = 
+
 # Create a route decorator
 @app.route("/")
 def index():
@@ -50,7 +53,7 @@ def index():
 # localhost:5000/question
 @app.route('/question')
 def question():
-    QNA = random.randint(1, 34)
+    QNA = random.randint(1, 54)
     if QNA == 1:
         return render_template('qn1.html')
     if QNA == 2:
@@ -119,6 +122,52 @@ def question():
         return render_template('qn33.html')
     if QNA == 34:
         return render_template('qn34.html')
+    if QNA == 35:
+        return render_template('qn35.html')
+    if QNA == 36:
+        return render_template('qn36.html')
+    if QNA == 37:
+        return render_template('37.html')
+    if QNA == 38:
+        return render_template('38.html')
+    if QNA == 39:
+        return render_template('39.html')
+    if QNA == 40:
+        return render_template('40.html')
+    if QNA == 41:
+        return render_template('41.html')
+    if QNA == 42:
+        return render_template('42.html')
+    if QNA == 43:
+        return render_template('43.html')
+    if QNA == 44:
+        return render_template('44.html')
+    if QNA == 45:
+        return render_template('45.html')
+    if QNA == 46:
+        return render_template('46.html')
+    if QNA == 47:
+        return render_template('47.html')
+    if QNA == 48:
+        return render_template('48.html')
+    if QNA == 49:
+        return render_template('49.html')
+    if QNA == 50:
+        return render_template('50.html')
+    if QNA == 51:
+        return render_template('51.html')
+    if QNA == 52:
+        return render_template('52.html')
+    if QNA == 53:
+        return render_template('53.html')
+    if QNA == 54:
+        return render_template('54.html')
+    # if QNA == 55:
+    #    return render_template('55.html')
+
+@app.route('/test')
+def test():
+    return render_template('pictest.html')
 
 # localhost:5000/about
 @app.route('/about')
@@ -126,7 +175,7 @@ def about():
     return render_template('about.html')
 
 # localhost:5000/database
-@app.route('/datapwd123456')#, methods=['GET', 'POST']
+@app.route('/datapwd123456', methods=['GET', 'POST'])
 def data():
     # if request.method == 'POST':
         # qna = request.form
@@ -138,8 +187,6 @@ def data():
         # cur.close()
         # return 'Success'
     return render_template('betterdata.html')
-
-# @app.route('/qn')
 
 # localhost:5000/thanks
 @app.route('/credits')
@@ -156,3 +203,5 @@ def page_not_found(e):
 @app.errorhandler(500)
 def page_not_found(e):
     return render_template('500.html'),500
+
+
